@@ -11,7 +11,7 @@
     <dependencies>
         <dependency>
             <groupId>com.lyy</groupId>
-            <artifactId>lyy-rpc-easy</artifactId>
+            <artifactId>lyy-rpc-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

@@ -2,6 +2,7 @@ package com.lyy.example.consumer;
 
 import com.lyy.example.common.model.User;
 import com.lyy.example.common.service.UserService;
+import com.lyy.lyyrpc.proxy.ServiceProxyFactory;
 
 /**
  * @author lian
@@ -12,8 +13,10 @@ import com.lyy.example.common.service.UserService;
 public class EasyConsumerExample {
 
     public static void main(String[] args) {
-        // todo 需要获取 UserService 的实现类对象
-        UserService userService = null;
+        // 静态代理
+        // UserService userService = new UserServiceProxy();
+        // 动态代理
+        UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User user = new User();
         user.setName("lian");
         // 调用

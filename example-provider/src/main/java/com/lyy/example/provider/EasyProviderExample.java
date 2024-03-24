@@ -2,6 +2,7 @@ package com.lyy.example.provider;
 
 import com.lyy.example.common.service.UserService;
 import com.lyy.lyyrpc.registry.LocalRegistry;
+import com.lyy.lyyrpc.server.HttpServer;
 import com.lyy.lyyrpc.server.VertxHttpServer;
 
 /**
@@ -17,7 +18,7 @@ public class EasyProviderExample {
             LocalRegistry.register(UserService.class.getName(), UserServiceImpl.class);
 
             // 启动 web 服务
-            VertxHttpServer vertxHttpServer = new VertxHttpServer();
-            vertxHttpServer.doStart(8080);
+            HttpServer httpServer = new VertxHttpServer();
+            httpServer.doStart(8080);
         }
 }
