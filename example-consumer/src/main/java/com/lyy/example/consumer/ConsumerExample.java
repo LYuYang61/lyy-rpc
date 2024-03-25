@@ -17,7 +17,7 @@ public class ConsumerExample {
 
     public static void main(String[] args) {
         // 获取代理
-        UserService userService = ServiceProxyFactory.getMockProxy(UserService.class);
+        UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User user = new User();
         user.setName("lian");
         // 调用

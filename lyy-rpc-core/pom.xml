@@ -46,6 +46,19 @@
             <artifactId>kryo</artifactId>
             <version>5.6.0</version>
         </dependency>
+        <!-- 注册中心 -->
+        <!-- https://mvnrepository.com/artifact/io.etcd/jetcd-core -->
+        <dependency>
+            <groupId>io.etcd</groupId>
+            <artifactId>jetcd-core</artifactId>
+            <version>0.7.7</version>
+        </dependency>
+        <!-- zookeeper -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-x-discovery</artifactId>
+            <version>5.6.0</version>
+        </dependency>
         <!-- https://github.com/rholder/guava-retrying -->
         <dependency>
             <groupId>com.github.rholder</groupId>

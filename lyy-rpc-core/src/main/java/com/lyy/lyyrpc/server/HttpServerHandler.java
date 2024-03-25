@@ -1,10 +1,11 @@
 package com.lyy.lyyrpc.server;
 
+import com.lyy.lyyrpc.RpcApplication;
 import com.lyy.lyyrpc.model.RpcRequest;
 import com.lyy.lyyrpc.model.RpcResponse;
 import com.lyy.lyyrpc.registry.LocalRegistry;
-import com.lyy.lyyrpc.serializer.JdkSerializer;
 import com.lyy.lyyrpc.serializer.Serializer;
+import com.lyy.lyyrpc.serializer.SerializerFactory;
 import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpServerRequest;
@@ -25,7 +26,8 @@ public class HttpServerHandler implements Handler<HttpServerRequest> {
     @Override
     public void handle(HttpServerRequest request) {
         // 指定序列化器
-        final Serializer serializer = new JdkSerializer();
+        // final Serializer serializer = new JdkSerializer();
+        final Serializer serializer = SerializerFactory.getInstance(RpcApplication.getConfig().getSerializer());
 
         // 记录日志
         System.out.println("Received request: " + request.method() + " " + request.uri());
