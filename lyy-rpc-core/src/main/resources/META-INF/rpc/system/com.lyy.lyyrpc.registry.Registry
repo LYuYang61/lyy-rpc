@@ -1,0 +1,1 @@
+etcd=com.lyy.lyyrpc.registry.EtcdRegistry

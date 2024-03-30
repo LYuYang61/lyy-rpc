@@ -13,18 +13,21 @@ import com.lyy.lyyrpc.proxy.ServiceProxyFactory;
 public class EasyConsumerExample {
 
     public static void main(String[] args) {
-        // 静态代理
-        // UserService userService = new UserServiceProxy();
+        ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory();
         // 动态代理
-        UserService userService = ServiceProxyFactory.getProxy(UserService.class);
+        UserService userService = serviceProxyFactory.getProxy(UserService.class);
         User user = new User();
-        user.setName("lian");
+        user.setName("我是lian ！！！！");
         // 调用
-        User newUser = userService.getUser(user);
-        if (newUser != null) {
-            System.out.println(newUser.getName());
-        } else {
-            System.out.println("user == null");
+        for (int i = 0; i < 10; i++) {
+            User newUser = userService.getUser(user);
+            if (newUser != null) {
+                System.out.println("我是name啊"+newUser.getName());
+            } else {
+                System.out.println("user == null");
+            }
         }
+        long number = userService.getNumber();
+        System.out.println(number);
     }
 }

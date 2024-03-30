@@ -1,11 +1,15 @@
 package com.lyy.lyyrpc.config;
 
+import lombok.Data;
+
 /**
  * @author lian
  * @title RegistryConfig
  * @date 2024/3/26 17:04
  * @description RPC 注册中心配置
  */
+
+@Data
 public class RegistryConfig {
 
     /**
@@ -16,7 +20,7 @@ public class RegistryConfig {
     /**
      * 注册中心地址
      */
-    private String address = "http://localhost:2380";
+    private String address = "http://localhost:2381";
 
     /**
      * 用户名
