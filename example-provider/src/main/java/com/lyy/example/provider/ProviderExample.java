@@ -10,6 +10,7 @@ import com.lyy.lyyrpc.registry.Registry;
 import com.lyy.lyyrpc.registry.RegistryFactory;
 import com.lyy.lyyrpc.server.HttpServer;
 import com.lyy.lyyrpc.server.VertxHttpServer;
+import com.lyy.lyyrpc.server.tcp.VertxTcpServer;
 
 /**
  * @author lian
@@ -33,7 +34,6 @@ public class ProviderExample {
         Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
         ServiceMetaInfo serviceMetaInfo = new ServiceMetaInfo();
         serviceMetaInfo.setServiceName(serviceName);
-        serviceMetaInfo.setServiceAddress(rpcConfig.getServerHost() + ":" + rpcConfig.getServerPort());
         serviceMetaInfo.setServicePort(rpcConfig.getServerPort());
         serviceMetaInfo.setServiceHost(rpcConfig.getServerHost());
 
@@ -43,8 +43,12 @@ public class ProviderExample {
             e.printStackTrace();
         }
 
+        // 启动 TCP 服务
+        VertxTcpServer vertxTcpServer = new VertxTcpServer();
+        vertxTcpServer.doStart(RpcApplication.getConfig().getServerPort());
+
         // 启动 web 服务
-        HttpServer httpServer = new VertxHttpServer();
-        httpServer.doStart(RpcApplication.getConfig().getServerPort());
+//        HttpServer httpServer = new VertxHttpServer();
+//        httpServer.doStart(RpcApplication.getConfig().getServerPort());
     }
 }
