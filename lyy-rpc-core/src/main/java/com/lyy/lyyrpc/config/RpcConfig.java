@@ -1,5 +1,6 @@
 package com.lyy.lyyrpc.config;
 
+import com.lyy.lyyrpc.loadbalancer.LoadBalancerKeys;
 import com.lyy.lyyrpc.serializer.SerializerKeys;
 import lombok.Data;
 
@@ -37,6 +38,11 @@ public class RpcConfig {
      * 序列化器
      */
     private String serializer = SerializerKeys.JDK;
+
+    /**
+     * 负载均衡器
+     */
+    private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
 
     /**
      * 模拟调用

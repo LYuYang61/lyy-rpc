@@ -1,0 +1,3 @@
+roundRobin=com.lyy.lyyrpc.loadbalancer.RoundRobinLoadBalancer
+random=com.lyy.lyyrpc.loadbalancer.RandomLoadBalancer
+consistentHash=com.lyy.lyyrpc.loadbalancer.ConsistentHashLoadBalancer
