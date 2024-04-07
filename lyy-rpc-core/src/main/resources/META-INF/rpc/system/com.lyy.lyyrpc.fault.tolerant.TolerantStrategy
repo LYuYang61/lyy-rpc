@@ -1,0 +1,4 @@
+failBack=com.lyy.lyyrpc.fault.tolerant.FailBackTolerantStrategy
+failFast=com.lyy.lyyrpc.fault.tolerant.FailFastTolerantStrategy
+failOver=com.lyy.lyyrpc.fault.tolerant.FailOverTolerantStrategy
+failSafe=com.lyy.lyyrpc.fault.tolerant.FailSafeTolerantStrategy
