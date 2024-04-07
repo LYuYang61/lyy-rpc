@@ -1,5 +1,6 @@
 package com.lyy.lyyrpc.config;
 
+import com.lyy.lyyrpc.fault.retry.RetryStrategyKeys;
 import com.lyy.lyyrpc.loadbalancer.LoadBalancerKeys;
 import com.lyy.lyyrpc.serializer.SerializerKeys;
 import lombok.Data;
@@ -43,6 +44,11 @@ public class RpcConfig {
      * 负载均衡器
      */
     private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
+
+    /**
+     * 重试策略
+     */
+    private String retryStrategy = RetryStrategyKeys.FIXED_INTERVAL;
 
     /**
      * 模拟调用

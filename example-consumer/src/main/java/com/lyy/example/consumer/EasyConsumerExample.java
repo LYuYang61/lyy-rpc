@@ -19,7 +19,7 @@ public class EasyConsumerExample {
         User user = new User();
         user.setName("芝士雪豹 ！！！");
         // 调用
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 30; i++) {
             User newUser = userService.getUser(user);
             if (newUser != null) {
                 System.out.println("我是谁？？？ "+newUser.getName());
