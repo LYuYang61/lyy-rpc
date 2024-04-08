@@ -1,15 +1,13 @@
 package com.lyy.lyyrpc.proxy;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.http.HttpRequest;
-import cn.hutool.http.HttpResponse;
 import com.lyy.lyyrpc.RpcApplication;
 import com.lyy.lyyrpc.config.RpcConfig;
 import com.lyy.lyyrpc.constant.RpcConstant;
 import com.lyy.lyyrpc.fault.retry.RetryStrategy;
 import com.lyy.lyyrpc.fault.retry.RetryStrategyFactory;
-import com.lyy.lyyrpc.fault.tolerent.TolerantStrategy;
-import com.lyy.lyyrpc.fault.tolerent.TolerantStrategyFactory;
+import com.lyy.lyyrpc.fault.tolerant.TolerantStrategy;
+import com.lyy.lyyrpc.fault.tolerant.TolerantStrategyFactory;
 import com.lyy.lyyrpc.loadbalancer.LoadBalancer;
 import com.lyy.lyyrpc.loadbalancer.LoadBalancerFactory;
 import com.lyy.lyyrpc.model.RpcRequest;
@@ -17,20 +15,15 @@ import com.lyy.lyyrpc.model.RpcResponse;
 import com.lyy.lyyrpc.model.ServiceMetaInfo;
 import com.lyy.lyyrpc.registry.Registry;
 import com.lyy.lyyrpc.registry.RegistryFactory;
-import com.lyy.lyyrpc.serializer.JdkSerializer;
 import com.lyy.lyyrpc.serializer.Serializer;
 import com.lyy.lyyrpc.serializer.SerializerFactory;
 import com.lyy.lyyrpc.server.tcp.VertxTcpClient;
-import io.vertx.core.Vertx;
-import io.vertx.core.net.NetClient;
 
-import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 
 /**
  * @author lian

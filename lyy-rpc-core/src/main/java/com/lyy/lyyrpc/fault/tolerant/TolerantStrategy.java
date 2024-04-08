@@ -1,8 +1,9 @@
-package com.lyy.lyyrpc.fault.tolerent;
+package com.lyy.lyyrpc.fault.tolerant;
 
 import com.lyy.lyyrpc.model.RpcResponse;
 
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @author lian
@@ -18,5 +19,5 @@ public interface TolerantStrategy {
      * @param e       异常
      * @return
      */
-    RpcResponse doTolerant(Map<String, Object> context, Exception e);
+    RpcResponse doTolerant(Map<String, Object> context, Exception e) throws ExecutionException, InterruptedException;
 }

@@ -1,4 +1,4 @@
-package com.lyy.lyyrpc.fault.tolerent;
+package com.lyy.lyyrpc.fault.tolerant;
 
 /**
  * @author lian

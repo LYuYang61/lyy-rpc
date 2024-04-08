@@ -1,7 +1,8 @@
 package com.lyy.lyyrpc.config;
 
 import com.lyy.lyyrpc.fault.retry.RetryStrategyKeys;
-import com.lyy.lyyrpc.fault.tolerent.TolerantStrategyKeys;
+import com.lyy.lyyrpc.fault.tolerant.MockServiceKeys;
+import com.lyy.lyyrpc.fault.tolerant.TolerantStrategyKeys;
 import com.lyy.lyyrpc.loadbalancer.LoadBalancerKeys;
 import com.lyy.lyyrpc.serializer.SerializerKeys;
 import lombok.Data;
@@ -49,12 +50,18 @@ public class RpcConfig {
     /**
      * 重试策略
      */
-    private String retryStrategy = RetryStrategyKeys.FIXED_INTERVAL;
+    private String retryStrategy = RetryStrategyKeys.EXPONENTIAL_BACKOFF;
 
     /**
      * 容错策略
      */
     private String tolerantStrategy = TolerantStrategyKeys.FAIL_FAST;
+
+    /**
+     * 模拟服务
+     */
+    private String mockService = MockServiceKeys.DEFAULT;
+
 
     /**
      * 模拟调用

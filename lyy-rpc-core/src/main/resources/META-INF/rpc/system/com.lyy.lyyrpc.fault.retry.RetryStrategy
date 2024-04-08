@@ -1,2 +1,4 @@
 no=com.lyy.lyyrpc.fault.retry.NoRetryStrategy
 fixedInterval=com.lyy.lyyrpc.fault.retry.FixedIntervalRetryStrategy
+exponentialBackoff=com.lyy.lyyrpc.fault.retry.ExponentialBackoffRetryStrategy
+randomDelay=com.lyy.lyyrpc.fault.retry.RandomDelayRetryStrategy

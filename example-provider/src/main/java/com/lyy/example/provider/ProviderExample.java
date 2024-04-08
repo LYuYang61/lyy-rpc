@@ -16,7 +16,7 @@ import com.lyy.lyyrpc.server.tcp.VertxTcpServer;
  * @author lian
  * @title ProviderExample
  * @date 2024/3/24 19:15
- * @description 服务消费者示例
+ * @description 服务提供者示例
  */
 public class ProviderExample {
 
