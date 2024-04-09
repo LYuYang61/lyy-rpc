@@ -15,10 +15,6 @@ public class TolerantStrategyFactory {
         SpiLoader.load(TolerantStrategy.class);
     }
 
-    /**
-     * 默认容错策略
-     */
-    private static final TolerantStrategy DEFAULT_RETRY_STRATEGY = new FailFastTolerantStrategy();
 
     /**
      * 获取实例

@@ -34,7 +34,7 @@ public class UserServiceProxy implements UserService {
             byte[] bodyBytes = serializer.serialize(rpcRequest);
 
             // 发送请求
-            try (HttpResponse httpResponse = HttpRequest.post("http://localhost:8080")
+            try (HttpResponse httpResponse = HttpRequest.post("http://localhost:8081")
                     .body(bodyBytes)
                     .execute()) {
                 byte[] result = httpResponse.bodyBytes();

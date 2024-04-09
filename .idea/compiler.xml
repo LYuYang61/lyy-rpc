@@ -2,14 +2,18 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="lyy-rpc-core" />
-        <module name="lyy-rpc-easy" />
+        <module name="example-springboot-provider" />
+        <module name="lyy-rpc-spring-boot-starter" />
+        <module name="example-springboot-consumer" />
         <module name="example-provider" />
         <module name="example-common" />
+        <module name="lyy-rpc-core" />
+        <module name="lyy-rpc-easy" />
         <module name="example-consumer" />
       </profile>
     </annotationProcessing>

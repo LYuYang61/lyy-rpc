@@ -1,6 +1,7 @@
 package com.lyy.lyyrpc.server;
 
 import io.vertx.core.Vertx;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  *
@@ -9,6 +10,7 @@ import io.vertx.core.Vertx;
  * @author lian
  * @description Vertx HTTP 服务器
  */
+@Slf4j
 public class VertxHttpServer implements HttpServer {
 
     /**

@@ -131,10 +131,10 @@ public class SpiLoader {
         return keyClassMap;
     }
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        loadAll();
-        System.out.println(loaderMap);
-        Serializer serializer = getInstance(Serializer.class, "jdk");
-        System.out.println(serializer);
-    }
+//    public static void main(String[] args) throws IOException, ClassNotFoundException {
+//        loadAll();
+//        System.out.println(loaderMap);
+//        Serializer serializer = getInstance(Serializer.class, "jdk");
+//        System.out.println(serializer);
+//    }
 }

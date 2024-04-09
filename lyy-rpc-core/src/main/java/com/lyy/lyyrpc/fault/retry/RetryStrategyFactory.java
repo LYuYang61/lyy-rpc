@@ -10,14 +10,14 @@ import com.lyy.lyyrpc.spi.SpiLoader;
  */
 public class RetryStrategyFactory {
 
+    private RetryStrategyFactory() {
+        throw new IllegalStateException("Utility class");
+    }
+
     static {
         SpiLoader.load(RetryStrategy.class);
     }
 
-    /**
-     * 默认重试器
-     */
-    private static final RetryStrategy DEFAULT_RETRY_STRATEGY = new NoRetryStrategy();
 
     /**
      * 获取实例
