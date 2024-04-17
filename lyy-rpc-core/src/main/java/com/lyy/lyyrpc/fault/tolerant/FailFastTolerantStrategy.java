@@ -8,7 +8,7 @@ import java.util.Map;
  * @author lian
  * @title FailFastTolerantStrategy
  * @date 2024/4/7 19:08
- * @description
+ * @description 快速失败 - 容错策略
  */
 public class FailFastTolerantStrategy implements TolerantStrategy {
 

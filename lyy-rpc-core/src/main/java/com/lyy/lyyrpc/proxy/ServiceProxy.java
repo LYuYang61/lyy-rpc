@@ -49,9 +49,9 @@ public class ServiceProxy implements InvocationHandler {
         // 构造请求
         String serviceName = method.getDeclaringClass().getName();
         RpcRequest rpcRequest = RpcRequest.builder()
-                .serviceName(serviceName)
-                .methodName(method.getName())
-                .parameterTypes(method.getParameterTypes())
+                .serviceName(serviceName)                     // 服务名
+                .methodName(method.getName())                 // 方法名
+                .parameterTypes(method.getParameterTypes())   // 参数类型
                 .args(args)
                 .build();
         // 从注册中心获取服务提供者请求地址
@@ -82,12 +82,13 @@ public class ServiceProxy implements InvocationHandler {
             // 容错机制
             HashMap<String, Object> map = new HashMap<>();
             map.put("serviceList", serviceMetaInfoList);
-            //排查在外的服务
+            // 排查在外的服务
             map.put("errorService", selectedServiceMetaInfo);
-            //传递rpcRequest
+            // 传递rpcRequest
             map.put("rpcRequest", rpcRequest);
             TolerantStrategy tolerantStrategy = TolerantStrategyFactory.getInstance(rpcConfig.getTolerantStrategy());
             rpcResponse = tolerantStrategy.doTolerant(map, e);
+
         }
 
         return rpcResponse.getData();

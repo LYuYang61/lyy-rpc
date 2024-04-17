@@ -54,7 +54,7 @@ public class TcpBufferHandlerWrapper implements Handler<Buffer> {
                 }
             }
         });
-        System.out.println(parser);
+        System.out.println("处理结果：" + parser);
         return parser;
     }
 }

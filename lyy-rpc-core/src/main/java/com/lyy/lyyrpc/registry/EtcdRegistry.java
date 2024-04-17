@@ -75,7 +75,7 @@ public class EtcdRegistry implements Registry{
         // 设置要存储的键值对
         String registerKey = ETCD_ROOT_PATH + serviceMetaInfo.getServiceNodeKey();
         ByteSequence key = ByteSequence.from(registerKey, StandardCharsets.UTF_8);
-        ByteSequence value = ByteSequence.from(JSONUtil.toJsonStr(serviceMetaInfo), StandardCharsets.UTF_8);
+        ByteSequence value = ByteSequence.from(JSONUtil.toJsonStr(serviceMetaInfo), StandardCharsets.UTF_8);  // 将对象转为 JSON 字符串
 
         // 将键值对与租约关联起来，并设置过期时间
         PutOption putOption = PutOption.builder().withLeaseId(leaseId).build();
@@ -94,11 +94,11 @@ public class EtcdRegistry implements Registry{
 
     @Override
     public List<ServiceMetaInfo> serviceDiscovery(String serviceKey) {
-        // 优先从缓存获取服务
-        List<ServiceMetaInfo> cachedServiceMetaInfoList = registryServiceCache.readCache();
-        if (cachedServiceMetaInfoList != null) {
-            return cachedServiceMetaInfoList;
-        }
+//        // 优先从缓存获取服务
+//        List<ServiceMetaInfo> cachedServiceMetaInfoList = registryServiceCache.readCache();
+//        if (cachedServiceMetaInfoList != null) {
+//            return cachedServiceMetaInfoList;
+//        }
 
         // 前缀搜索，结尾一定要加 '/'
         String searchPrefix = ETCD_ROOT_PATH + serviceKey + "/";
@@ -121,6 +121,7 @@ public class EtcdRegistry implements Registry{
                         return JSONUtil.toBean(value, ServiceMetaInfo.class);
                     })
                     .collect(Collectors.toList());
+
             // 写入服务缓存
             registryServiceCache.writeCache(serviceMetaInfoList);
             return serviceMetaInfoList;

@@ -15,4 +15,16 @@ public class UserServiceImpl implements UserService {
         System.out.println("用户名：" + user.getName());
         return user;
     }
+
+    @Override
+    public String getAddress(User user) {
+        System.out.println("用户地址：" + user.getAddress());
+        return "id".concat(user.getAddress());
+    }
+
+    @Override
+    public String getId(User user) {
+        System.out.println("用户id: " + user.getId());
+        return "id".concat(user.getId());
+    }
 }

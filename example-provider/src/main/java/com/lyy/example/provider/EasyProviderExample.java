@@ -1,9 +1,16 @@
 package com.lyy.example.provider;
 
+import com.lyy.example.common.model.Order;
+import com.lyy.example.common.service.OrderService;
 import com.lyy.example.common.service.UserService;
+import com.lyy.lyyrpc.bootstrap.ProviderBootstrap;
+import com.lyy.lyyrpc.model.ServiceRegisterInfo;
 import com.lyy.lyyrpc.registry.LocalRegistry;
 import com.lyy.lyyrpc.server.HttpServer;
 import com.lyy.lyyrpc.server.VertxHttpServer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author lian
@@ -13,12 +20,16 @@ import com.lyy.lyyrpc.server.VertxHttpServer;
  */
 public class EasyProviderExample {
 
-        public static void main(String[] args) {
-            // 注册服务
-            LocalRegistry.register(UserService.class.getName(), UserServiceImpl.class);
+    public static void main(String[] args) {
 
-            // 启动 web 服务
-            HttpServer httpServer = new VertxHttpServer();
-            httpServer.doStart(8081);
-        }
+        // 要注册的服务
+        List<ServiceRegisterInfo<?>> serviceRegisterInfoList = new ArrayList<>();
+        ServiceRegisterInfo serviceRegisterInfo2 = new ServiceRegisterInfo(OrderService.class.getName(), OrderServiceImpl.class);
+
+
+        serviceRegisterInfoList.add(serviceRegisterInfo2);
+
+        // 服务提供者初始化
+        ProviderBootstrap.init(serviceRegisterInfoList);
+    }
 }

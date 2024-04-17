@@ -51,12 +51,12 @@ public class ProviderBootstrap {
                 throw new RuntimeException(serviceName + " 服务注册失败", e);
             }
 
-            // 引入延迟：等待 15 秒钟
-            try {
-                TimeUnit.SECONDS.sleep(15);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            // 引入延迟：等待 10 秒钟
+//            try {
+//                TimeUnit.SECONDS.sleep(60);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
 
             // 启动服务器
             VertxTcpServer vertxTcpServer = new VertxTcpServer();

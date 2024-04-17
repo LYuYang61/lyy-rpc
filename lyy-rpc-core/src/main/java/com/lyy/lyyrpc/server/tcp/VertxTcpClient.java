@@ -44,6 +44,7 @@ public class VertxTcpClient {
                         System.err.println("Failed to connect to TCP server");
                         responseFuture.completeExceptionally(new RuntimeException("Failed to connect to TCP server"));
                     }
+
                     NetSocket socket = result.result();
                     // 发送数据
                     // 构造消息
@@ -57,6 +58,7 @@ public class VertxTcpClient {
                     header.setRequestId(IdUtil.getSnowflakeNextId());
                     protocolMessage.setHeader(header);
                     protocolMessage.setBody(rpcRequest);
+
 
                     // 编码请求
                     try {
@@ -82,7 +84,7 @@ public class VertxTcpClient {
 
                 });
 
-        RpcResponse rpcResponse = responseFuture.get();
+        RpcResponse rpcResponse = responseFuture.get();  // 等待异步响应的结果
 
 
 
@@ -95,7 +97,7 @@ public class VertxTcpClient {
         // 创建 Vert.x 实例
         Vertx vertx = Vertx.vertx();
 
-        vertx.createNetClient().connect(8888, "localhost", result -> {
+        vertx.createNetClient().connect(8889, "localhost", result -> {
             if (result.succeeded()) {
                 System.out.println("Connected to TCP server");
                 io.vertx.core.net.NetSocket socket = result.result();

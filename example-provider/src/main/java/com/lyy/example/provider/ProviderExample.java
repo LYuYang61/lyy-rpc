@@ -1,22 +1,15 @@
 package com.lyy.example.provider;
 
+import com.lyy.example.common.service.OrderService;
 import com.lyy.example.common.service.UserService;
-import com.lyy.lyyrpc.RpcApplication;
 import com.lyy.lyyrpc.bootstrap.ProviderBootstrap;
-import com.lyy.lyyrpc.config.RegistryConfig;
-import com.lyy.lyyrpc.config.RpcConfig;
-import com.lyy.lyyrpc.model.ServiceMetaInfo;
+
 import com.lyy.lyyrpc.model.ServiceRegisterInfo;
-import com.lyy.lyyrpc.registry.LocalRegistry;
-import com.lyy.lyyrpc.registry.Registry;
-import com.lyy.lyyrpc.registry.RegistryFactory;
-import com.lyy.lyyrpc.server.HttpServer;
-import com.lyy.lyyrpc.server.VertxHttpServer;
-import com.lyy.lyyrpc.server.tcp.VertxTcpServer;
+
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 /**
  * @author lian
@@ -30,8 +23,9 @@ public class ProviderExample {
 
         // 要注册的服务
         List<ServiceRegisterInfo<?>> serviceRegisterInfoList = new ArrayList<>();
-        ServiceRegisterInfo serviceRegisterInfo = new ServiceRegisterInfo(UserService.class.getName(), UserServiceImpl.class);
-        serviceRegisterInfoList.add(serviceRegisterInfo);
+        ServiceRegisterInfo serviceRegisterInfo1 = new ServiceRegisterInfo(UserService.class.getName(), UserServiceImpl.class);
+
+        serviceRegisterInfoList.add(serviceRegisterInfo1);
 
         // 服务提供者初始化
         ProviderBootstrap.init(serviceRegisterInfoList);

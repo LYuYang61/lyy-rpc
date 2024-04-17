@@ -18,8 +18,4 @@ public interface LoadBalancerKeys {
      */
     String RANDOM = "random";
 
-    /**
-     * 加权轮询负载均衡器
-     */
-    String CONSISTENT_HASH = "consistentHash";
 }

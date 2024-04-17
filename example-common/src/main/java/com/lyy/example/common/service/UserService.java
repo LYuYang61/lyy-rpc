@@ -19,6 +19,20 @@ public interface UserService {
         User getUser(User user);
 
         /**
+         * 获取用户地址
+         * @param user
+         * @return
+         */
+        String getAddress(User user);
+
+        /**
+         * 获取用户 id
+         * @param user
+         * @return
+         */
+        String getId(User user);
+
+        /**
          * 用于测试 mock 接口返回值
          *
          * @return

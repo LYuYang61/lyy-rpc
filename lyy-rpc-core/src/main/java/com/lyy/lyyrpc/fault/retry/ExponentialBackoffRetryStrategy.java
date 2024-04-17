@@ -30,7 +30,7 @@ public class ExponentialBackoffRetryStrategy implements RetryStrategy {
         Retryer<RpcResponse> retryer = RetryerBuilder.<RpcResponse>newBuilder()
                 .retryIfExceptionOfType(Exception.class)
                 .withWaitStrategy(WaitStrategies.exponentialWait(1000, 30L, TimeUnit.SECONDS))
-                .withStopStrategy(StopStrategies.stopAfterAttempt(5))
+                .withStopStrategy(StopStrategies.stopAfterAttempt(4))
                 .withRetryListener(new RetryListener() {
                     @Override
                     public <V> void onRetry(Attempt<V> attempt) {

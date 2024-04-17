@@ -24,9 +24,9 @@ public class ServiceProxyFactory implements ProxyFactory {
             return getMockProxy(serviceClass);
         }
         return (T) Proxy.newProxyInstance(
-                serviceClass.getClassLoader(),
-                new Class[]{serviceClass},
-                new ServiceProxy());
+                serviceClass.getClassLoader(), // 类加载器
+                new Class[]{serviceClass},     // 代理类需要实现的接口
+                new ServiceProxy());           // 代理对象
     }
 
     /**
