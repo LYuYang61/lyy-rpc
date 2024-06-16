@@ -8,7 +8,9 @@ import com.lyy.lyyrpc.model.ServiceRegisterInfo;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Vector;
 
 
 /**
@@ -25,10 +27,18 @@ public class ProviderExample {
         List<ServiceRegisterInfo<?>> serviceRegisterInfoList = new ArrayList<>();
         ServiceRegisterInfo serviceRegisterInfo1 = new ServiceRegisterInfo(UserService.class.getName(), UserServiceImpl.class);
 
+
         serviceRegisterInfoList.add(serviceRegisterInfo1);
 
-        // 服务提供者初始化
-        ProviderBootstrap.init(serviceRegisterInfoList);
+
+//        List<ServiceRegisterInfo<?>> serviceRegisterInfoList = new ArrayList<>();
+//        Arrays.asList(
+//                new ServiceRegisterInfo<>(UserService.class.getName(), UserServiceImpl.class),
+//                new ServiceRegisterInfo<>(OrderService.class.getName(), OrderServiceImpl.class)
+//        ).forEach(serviceRegisterInfoList::add);
+//
+//        // 服务提供者初始化
+         ProviderBootstrap.init(serviceRegisterInfoList);
 
 //        // RPC 框架初始化
 //        RpcApplication.init();

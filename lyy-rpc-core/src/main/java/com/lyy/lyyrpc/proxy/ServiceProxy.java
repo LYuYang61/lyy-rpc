@@ -33,19 +33,17 @@ import java.util.Map;
  */
 public class ServiceProxy implements InvocationHandler {
 
-
     /**
-     * 调用代理
+     * 代理方法
      *
-     * @return
-     * @throws Throwable
+     * @param proxy  代理对象
+     * @param method 方法
+     * @param args   参数
+     * @return {@link Object}
+     * @throws Throwable 异常
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        // 指定序列化器
-        // Serializer serializer = new JdkSerializer();
-        // final Serializer serializer = SerializerFactory.getInstance(RpcApplication.getConfig().getSerializer());
-
         // 构造请求
         String serviceName = method.getDeclaringClass().getName();
         RpcRequest rpcRequest = RpcRequest.builder()

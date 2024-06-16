@@ -19,6 +19,13 @@ public class RoundRobinLoadBalancer implements LoadBalancer {
      */
     private final AtomicInteger index = new AtomicInteger(0);
 
+    /**
+     * 轮询选择服务
+     *
+     * @param requestParams       请求参数
+     * @param serviceMetaInfoList 服务列表
+     * @return {@link ServiceMetaInfo}
+     */
     @Override
     public ServiceMetaInfo select(Map<String, Object> requestParams, List<ServiceMetaInfo> serviceMetaInfoList) {
         if (serviceMetaInfoList.isEmpty()) {

@@ -28,9 +28,9 @@ public class ExponentialBackoffRetryStrategy implements RetryStrategy {
      */
     public RpcResponse doRetry(Callable<RpcResponse> callable) throws ExecutionException, RetryException {
         Retryer<RpcResponse> retryer = RetryerBuilder.<RpcResponse>newBuilder()
-                .retryIfExceptionOfType(Exception.class)
-                .withWaitStrategy(WaitStrategies.exponentialWait(1000, 30L, TimeUnit.SECONDS))
-                .withStopStrategy(StopStrategies.stopAfterAttempt(4))
+                .retryIfExceptionOfType(Exception.class)   // 异常重试
+                .withWaitStrategy(WaitStrategies.exponentialWait(1000, 30L, TimeUnit.SECONDS))  // 重试间隔为 1 秒，最大重试间隔为 30 秒
+                .withStopStrategy(StopStrategies.stopAfterAttempt(4))  // 重试次数为 4 次
                 .withRetryListener(new RetryListener() {
                     @Override
                     public <V> void onRetry(Attempt<V> attempt) {

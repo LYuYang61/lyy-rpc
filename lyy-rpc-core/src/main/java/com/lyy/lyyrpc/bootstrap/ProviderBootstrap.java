@@ -35,7 +35,7 @@ public class ProviderBootstrap {
         // 注册服务
         for (ServiceRegisterInfo<?> serviceRegisterInfo : serviceRegisterInfoList) {
             String serviceName = serviceRegisterInfo.getServiceName();
-            // 本地注册
+            // 本地注册 服务名 -> 实现类
             LocalRegistry.register(serviceName, serviceRegisterInfo.getImplClass());
 
             // 注册服务到注册中心
@@ -51,9 +51,9 @@ public class ProviderBootstrap {
                 throw new RuntimeException(serviceName + " 服务注册失败", e);
             }
 
-            // 引入延迟：等待 10 秒钟
+//            // 引入延迟：等待 15 秒钟
 //            try {
-//                TimeUnit.SECONDS.sleep(60);
+//                TimeUnit.SECONDS.sleep(120);
 //            } catch (InterruptedException e) {
 //                e.printStackTrace();
 //            }

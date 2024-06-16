@@ -24,6 +24,15 @@ import java.util.concurrent.ExecutionException;
 @Slf4j
 public class FailOverTolerantStrategy implements TolerantStrategy {
 
+    /**
+     * 容错处理
+     *
+     * @param context 容错上下文
+     * @param e       异常
+     * @return {@link RpcResponse}
+     * @throws ExecutionException   执行异常
+     * @throws InterruptedException 中断异常
+     */
     @Override
     public RpcResponse doTolerant(Map<String, Object> context, Exception e) throws ExecutionException, InterruptedException {
         List<ServiceMetaInfo> serviceMetaInfoList = (List<ServiceMetaInfo>) context.get("serviceList");
@@ -34,8 +43,6 @@ public class FailOverTolerantStrategy implements TolerantStrategy {
         // 重新调用其他服务
         if (CollUtil.isNotEmpty(serviceMetaInfoList)) {
             // 重新调用其他服务
-            // 负载均衡
-            // 将调用方法名（请求路径）作为负载均衡参数
             Map<String, Object> requestParams = new HashMap<>();
             requestParams.put("methodName", rpcRequest.getMethodName());
             // 负载均衡

@@ -24,7 +24,7 @@ public class ConsumerExample {
         ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory();
         // 动态代理
         UserService userService = serviceProxyFactory.getProxy(UserService.class);
-        OrderService orderService = serviceProxyFactory.getProxy(OrderService.class);
+        //OrderService orderService = serviceProxyFactory.getProxy(OrderService.class);
 
 //        User user = new User();
 //        user.setName("芝士雪豹 ！！！");
@@ -37,32 +37,32 @@ public class ConsumerExample {
 
 
         // 调用
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 8; i++) {
             User user = new User();
-            user.setName("芝士雪豹：" + i);
+            //user.setName("芝士雪豹：" + i);
             user.setAddress("理塘：" + i);
-            user.setId("10086：" + i);
+            //user.setId("10086：" + i);
 
-            Order order = new Order();
-            order.setOrderId("10001：" + i) ;
-            order.setOrderName("菜狗：" + i);
+//            Order order = new Order();
+//            order.setOrderId("10001：" + i) ;
+//            order.setOrderName("菜狗：" + i);
 
 
-            User newUser = userService.getUser(user);
+           // User newUser = userService.getUser(user);
             String address = userService.getAddress(user);
-            String id = userService.getId(user);
-            System.out.println("address: "+address);
-            System.out.println("id: "+id);
-            if (newUser != null) {
-                System.out.println("我是谁？？？ "+newUser.getName());
-            } else {
-                System.out.println("user == null");
-            }
-
-            String orderName = orderService.getOrderName(order);
-            String orderId = orderService.getOrderId(order);
-            System.out.println("orderName: "+orderName);
-            System.out.println("orderId: "+orderId);
+           // String id = userService.getId(user);
+            System.out.println("address: " + address);
+//            System.out.println("id: "+id);
+//            if (newUser != null) {
+//                System.out.println("我是谁？？？ "+newUser.getName());
+//            } else {
+//                System.out.println("user == null");
+//            }
+//
+//            String orderName = orderService.getOrderName(order);
+//            String orderId = orderService.getOrderId(order);
+//            System.out.println("orderName: "+orderName);
+//            System.out.println("orderId: "+orderId);
         }
 
 
